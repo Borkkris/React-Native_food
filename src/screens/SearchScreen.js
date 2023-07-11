@@ -28,18 +28,20 @@ const filterResultsByPrice = (price) => {
         onTermChange={(newTerm) => setTerm(newTerm)}
         onTermSubmit={() => searchApi(term)}/>
       {errorMessage ? <Text style={styles.errorStyle}>{errorMessage}</Text> : null}
+
       <Text>We have found {results.length} results</Text>
+
       <ResultsList
         results={filterResultsByPrice('$')}
-        title="cost effective"
+        title="Cost Effective"
       />
       <ResultsList 
       results={filterResultsByPrice('$$')}
-        title="a bit pricier"
+        title="Bit Pricier"
       />
       <ResultsList 
       results={filterResultsByPrice('$$$')}
-        title="big spender"
+        title="Big Spender"
       />
     </View>
   )
