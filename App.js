@@ -1,20 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+//screens
+import SearchScreen from './src/screens/SearchScreen';
+
+const navigator = createStackNavigator({
+  Search: SearchScreen
+}, {
+  // on default show the search screen
+  initialRouteName: 'Search',
+  // shows always a default title
+  defaultNavigationOptions: {
+    title: 'Business Search'
+  }
 });
+
+export default createAppContainer(navigator);  
